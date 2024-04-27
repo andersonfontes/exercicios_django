@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Lista de Médicos{% endblock %}
+
+{% block content %}
+    <h2>Lista de Médicos</h2>
+    <ul>
+        {% for medico in medicos %}
+            <li>{{ medico.nome }} - {{ medico.especialidade }}
+                <form action="{% url 'medico_delete' medico.id %}" method="post" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit">Deletar</button>
+                </form>
+                <a href="{% url 'medico_edit' medico.id %}">Editar</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'medico_create' %}">Cadastrar Novo Médico</a>
+{% endblock %}
