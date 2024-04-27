@@ -16,8 +16,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls.static import static
+
+from core import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('medicos.urls')),  # Inclui as URLs do seu aplicativo
-]
+]  
+
+
+# ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+# ou
+# if settings.DEBUG:
+#     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+#     Essa configuração verifica se o modo de depuração (DEBUG) está ativado no arquivo settings.py antes de adicionar as URLs para servir arquivos estáticos. Isso garante que os arquivos estáticos sejam servidos apenas durante o desenvolvimento quando DEBUG estiver definido como True.
