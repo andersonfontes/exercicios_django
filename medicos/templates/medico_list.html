@@ -6,7 +6,7 @@
 {% block content %}
     <h2>Lista de Médicos</h2>
     <ul>
-        {% for medico in medicos %}
+        {% for medico in medico_list %}
             <li>{{ medico.nome }} - {{ medico.especialidade }}
                 <form action="{% url 'medico_delete' medico.id %}" method="post" style="display: inline;">
                     {% csrf_token %}

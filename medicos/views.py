@@ -10,6 +10,7 @@ from .forms import EspecialidadeForm, MedicoForm
 class EspecialidadeListView(ListView):
     model = Especialidade
     template_name = 'especialidade_list.html'
+   
 
 class EspecialidadeCreateView(CreateView):
     model = Especialidade
@@ -31,6 +32,7 @@ class EspecialidadeDeleteView(DeleteView):
 class MedicoListView(ListView):
     model = Medico
     template_name = 'medico_list.html'
+    
 
 class MedicoCreateView(CreateView):
     model = Medico

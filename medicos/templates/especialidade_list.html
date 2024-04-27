@@ -6,7 +6,7 @@
 {% block content %}
     <h2>Lista de Especialidades</h2>
     <ul>
-        {% for especialidade in especialidades %}
+        {% for especialidade in especialidade_list %}
             <li>{{ especialidade.nome }} - {{ especialidade.descricao }}
                 <form action="{% url 'especialidade_delete' especialidade.id %}" method="post" style="display: inline;">
                     {% csrf_token %}
