@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Lista de Especialidades{% endblock %}
+
+{% block content %}
+    <h2>Lista de Especialidades</h2>
+    <ul>
+        {% for especialidade in especialidade_list %}
+            <li>{{ especialidade.nome }} - {{ especialidade.descricao }}
+                <form action="{% url 'especialidade_delete' especialidade.id %}" method="post" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit">Deletar</button>
+                </form>
+                <a href="{% url 'especialidade_edit' especialidade.id %}">Editar</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'especialidade_create' %}">Cadastrar Nova Especialidade</a>
+{% endblock %}
