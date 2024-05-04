@@ -15,4 +15,7 @@ urlpatterns = [
     path('medicos/create/', MedicoCreateView.as_view(), name='medico_create'),
     path('medicos/<int:pk>/update/', MedicoUpdateView.as_view(), name='medico_edit'),
     path('medicos/<int:pk>/delete/', MedicoDeleteView.as_view(), name='medico_delete'),
-]
+
+    path('medicos/', MedicoListView.as_view(), name='home'),
+
+    ]
