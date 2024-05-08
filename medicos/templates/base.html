@@ -10,6 +10,12 @@
 <body>
     <header>
         <h1>Meu Site</h1>
+        {% if user.is_authenticated %}
+            <p>Olá, {{ user.username }}!</p>
+            <a href="{% url 'logout' %}">LOGOUT</a>
+        {% else %}
+            <a href="{% url 'login' %}">LOGIN</a>
+        {% endif %}
         <nav>
             <ul>
                 <li><a href="{% url 'especialidade_list' %}">Especialidades</a></li>
