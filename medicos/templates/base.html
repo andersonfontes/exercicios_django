@@ -12,9 +12,13 @@
         <h1>Meu Site</h1>
         {% if user.is_authenticated %}
             <p>Olá, {{ user.username }}!</p>
-            <a href="{% url 'logout' %}">LOGOUT</a>
+            <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %} 
+                <!-- #csrf_token is very important to have as this is POST request -->
+                <button type="submit">Logout</button>
+            </form>
         {% else %}
-            <a href="{% url 'login' %}">LOGIN</a>
+            <a href="{% url 'login' %}" class="button">LOGIN</a>
         {% endif %}
         <nav>
             <ul>
