@@ -66,5 +66,4 @@ class MedicoDeleteView(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy('medico_list')
 
 def homepage(request):
-    template = loader.get_template("home.html")
-    return HttpResponse(template.render())
+    return render(request, "home.html")
