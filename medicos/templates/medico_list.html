@@ -8,13 +8,17 @@
     <ul>
         {% for medico in medico_list %}
             <li>{{ medico.nome }} - {{ medico.especialidade }}
+                {% if perms.medicos.change_medico %}
                 <form action="{% url 'medico_delete' medico.id %}" method="post" style="display: inline;">
                     {% csrf_token %}
                     <button type="submit">Deletar</button>
                 </form>
                 <a href="{% url 'medico_edit' medico.id %}">Editar</a>
+                {% endif %}
             </li>
         {% endfor %}
     </ul>
+    {% if perms.medicos.add_medico %}
     <a href="{% url 'medico_create' %}">Cadastrar Novo Médico</a>
+    {% endif %}
 {% endblock %}
